@@ -3,15 +3,7 @@ var router = express.Router();
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-const SECRET = "tamanasir"
-
-const mysql = require('mysql')
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: '2elab'
-})
+var { connection, SECRET } = require('../config/config')
 
 router.post('/login',(req, res) => {
     let { username, password } = req.body
